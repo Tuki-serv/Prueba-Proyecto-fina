@@ -1,7 +1,10 @@
 package com.Tuki.Tuki_Backend_Provisional.Entidades;
 
+import com.Tuki.Tuki_Backend_Provisional.Entidades.Enum.Rol;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.*;
 
 @Entity
@@ -17,5 +20,7 @@ public class Usuario extends Base {
     private String email;
 
     private String password;
-    private String rol;
+
+    @Enumerated(EnumType.STRING)
+    private Rol rol;
 }

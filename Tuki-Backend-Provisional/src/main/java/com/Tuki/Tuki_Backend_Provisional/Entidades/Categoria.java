@@ -6,7 +6,6 @@ import jakarta.persistence.OneToMany;
 import lombok.*;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -17,12 +16,15 @@ import java.util.Set;
 @Setter
 @EqualsAndHashCode
 public class Categoria extends Base{
+    private String nombre;
+    private String descripcion;
+
+    @OneToMany(mappedBy = "categoria")
     @Builder.Default
     private Set<Producto> productos = new HashSet<>();
 
 
-    @OneToMany
-    @JoinColumn(name= "categoria")
+
     public void agregrarProducto(Producto p){
         productos.add(p);
     }
